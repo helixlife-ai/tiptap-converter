@@ -1,5 +1,5 @@
-import { Callout } from './callout'
+import { Callout } from './callout';
 
-export * from './callout'
+export * from './callout';
 
-export default Callout
+export default Callout;

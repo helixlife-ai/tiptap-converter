@@ -1,7 +1,7 @@
-import './MenuBar.scss'
+import './MenuBar.scss';
 
-import React, { Fragment } from 'react'
-import { 
+import React, { Fragment } from 'react';
+import {
   Redo2,
   Undo2,
   Bold,
@@ -18,13 +18,11 @@ import {
   TextQuote,
   SeparatorHorizontal,
   WrapText,
-  Eraser
- } from 'lucide-react'
- import type { Editor } from '@tiptap/core'
+  Eraser,
+} from 'lucide-react';
+import type { Editor } from '@tiptap/core';
 
-const MenuItem = ({
-  icon: Icon, title, action, isActive,
-}: any) => (
+const MenuItem = ({ icon: Icon, title, action, isActive }: any) => (
   <button
     className={`menu-item${isActive && isActive() ? ' is-active' : ''}`}
     onClick={action}
@@ -32,9 +30,9 @@ const MenuItem = ({
   >
     <Icon />
   </button>
-)
+);
 
-const MenuBar =  ({ editor }: { editor: Editor }) => {
+const MenuBar = ({ editor }: { editor: Editor }) => {
   const items = [
     {
       icon: Undo2,
@@ -146,23 +144,26 @@ const MenuBar =  ({ editor }: { editor: Editor }) => {
     {
       icon: Eraser,
       title: 'Clear format',
-      action: () => editor.chain().focus().clearNodes().unsetAllMarks()
-        .run(),
+      action: () => editor.chain().focus().clearNodes().unsetAllMarks().run(),
     },
     {
       type: 'divider',
     },
-  ]
+  ];
 
   return (
     <div className="flex gap-x-3">
       {items.map((item, index) => (
         <Fragment key={index}>
-          {item.type === 'divider' ? <div className="divider" /> : <MenuItem {...item} />}
+          {item.type === 'divider' ? (
+            <div className="divider" />
+          ) : (
+            <MenuItem {...item} />
+          )}
         </Fragment>
       ))}
     </div>
-  )
-}
+  );
+};
 
 export default MenuBar;
