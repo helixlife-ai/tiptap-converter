@@ -107,14 +107,44 @@ const getLanguage = (languageId: ContentStyle['language']) => {
   }
 };
 
-const getContent = (
-  elements: TextElement[],
-  node_ids: string[] = [],
-  blocks: TBlock[],
-  convertBlock: (block: TBlock) => TNode | null
-) => {
-  if (node_ids.length) {
-    return node_ids
+const getContent = ({
+  elements = [],
+  childNodeIds = [],
+  blocks = [],
+  convertBlock,
+  style,
+}: {
+  elements: TextElement[];
+  childNodeIds: string[];
+  blocks: TBlock[];
+  convertBlock: (block: TBlock) => TNode | null;
+  style?: ContentStyle;
+}) => {
+  const content: TNode[] = [];
+  if (elements.length) {
+    const elementContent = elements
+      .filter((element) => element.text_run?.content)
+      .map((element) => ({
+        type: 'text',
+        text: element.text_run.content,
+        marks: getMarks(element.text_run.text_element_style),
+      }));
+
+    if (childNodeIds.length) {
+      content.push({
+        type: 'paragraph',
+        attrs: {
+          textAlign: getAlignment(style?.align),
+          id: uuidv4(), // TODO: remove id after compeleting id plugin
+        },
+        content: elementContent,
+      });
+    } else {
+      content.push(...elementContent);
+    }
+  }
+  if (childNodeIds.length) {
+    const nodes = childNodeIds
       .map((nodeId) => {
         const subBlock = blocks.find(
           (subBlock) => subBlock.block_id === nodeId
@@ -123,23 +153,25 @@ const getContent = (
           return convertBlock(subBlock);
         }
       })
-      .filter((block) => block);
+      .filter((block) => block) as TNode[];
+
+    content.push(...nodes);
   }
-  return elements
-    .filter((element) => element.text_run.content)
-    .map((element) => ({
-      type: 'text',
-      text: element.text_run.content,
-      marks: getMarks(element.text_run.text_element_style),
-    }));
+
+  return content;
 };
 
-const getListContent = (
-  elements: TextElement[],
-  childNodeIds: string[] = [],
-  blocks: TBlock[],
-  convertBlock: (block: TBlock) => TNode | null
-) => {
+const getListContent = ({
+  elements,
+  childNodeIds,
+  blocks,
+  convertBlock,
+}: {
+  elements: TextElement[];
+  childNodeIds: string[];
+  blocks: TBlock[];
+  convertBlock: (block: TBlock) => TNode | null;
+}) => {
   let content: TNode[] = [];
 
   if (childNodeIds.length) {
@@ -163,7 +195,12 @@ const getListContent = (
           attrs: {
             id: uuidv4(), // TODO: remove id after compeleting id plugin
           },
-          content: getContent([element], childNodeIds, blocks, convertBlock),
+          content: getContent({
+            elements: [element],
+            childNodeIds,
+            blocks,
+            convertBlock,
+          }),
         },
       ],
     }));
@@ -185,7 +222,13 @@ export function convertToTiptapContent(blocks: TBlock[]): TNode {
         return {
           type: 'doc',
           attrs: { id: block.block_id },
-          content: getContent(elements, childNodeIds, blocks, convertBlock),
+          content: getContent({
+            elements,
+            childNodeIds,
+            blocks,
+            convertBlock,
+            style,
+          }),
         };
 
       case 'heading1':
@@ -202,7 +245,13 @@ export function convertToTiptapContent(blocks: TBlock[]): TNode {
             textAlign: getAlignment(style.align),
             id: block.block_id,
           },
-          content: getContent(elements, childNodeIds, blocks, convertBlock),
+          content: getContent({
+            elements,
+            childNodeIds,
+            blocks,
+            convertBlock,
+            style,
+          }),
         };
 
       case 'text':
@@ -212,14 +261,25 @@ export function convertToTiptapContent(blocks: TBlock[]): TNode {
             textAlign: getAlignment(style.align),
             id: block.block_id,
           },
-          content: getContent(elements, childNodeIds, blocks, convertBlock),
+          content: getContent({
+            elements,
+            childNodeIds,
+            blocks,
+            convertBlock,
+            style,
+          }),
         };
 
       case 'bullet':
         return {
           type: 'bulletList',
           attrs: { id: block.block_id },
-          content: getListContent(elements, childNodeIds, blocks, convertBlock),
+          content: getListContent({
+            elements,
+            childNodeIds,
+            blocks,
+            convertBlock,
+          }),
         };
 
       case 'ordered':
@@ -230,7 +290,12 @@ export function convertToTiptapContent(blocks: TBlock[]): TNode {
             textAlign: getAlignment(style.align),
             id: block.block_id,
           },
-          content: getListContent(elements, childNodeIds, blocks, convertBlock),
+          content: getListContent({
+            elements,
+            childNodeIds,
+            blocks,
+            convertBlock,
+          }),
         };
 
       case 'code':
@@ -240,7 +305,13 @@ export function convertToTiptapContent(blocks: TBlock[]): TNode {
             language: getLanguage(style.language),
             id: block.block_id,
           },
-          content: getContent(elements, childNodeIds, blocks, convertBlock),
+          content: getContent({
+            elements,
+            childNodeIds,
+            blocks,
+            convertBlock,
+            style,
+          }),
         };
 
       case 'divider':
@@ -253,17 +324,21 @@ export function convertToTiptapContent(blocks: TBlock[]): TNode {
         return {
           type: 'blockquote',
           attrs: { id: block.block_id },
-          content: getContent(elements, childNodeIds, blocks, convertBlock),
+          content: getContent({
+            elements,
+            childNodeIds,
+            blocks,
+            convertBlock,
+            style,
+          }),
         };
 
       case 'image':
         return {
           type: 'image',
           attrs: {
-            src: `${content.token}`,
-            width: content.width,
-            height: content.height,
-            textAlign: getAlignment(style.align),
+            src: `${block.block_content?.style.src}`,
+            textAlign: getAlignment(block.block_content?.style.align),
             id: block.block_id,
           },
         };
@@ -330,7 +405,13 @@ export function convertToTiptapContent(blocks: TBlock[]): TNode {
         return {
           type: 'tableCell',
           attrs: { id: uuidv4() }, // TODO: remove id after compeleting id plugin
-          content: getContent(elements, childNodeIds, blocks, convertBlock),
+          content: getContent({
+            elements,
+            childNodeIds,
+            blocks,
+            convertBlock,
+            style,
+          }),
         };
 
       case 'callout':
@@ -343,12 +424,32 @@ export function convertToTiptapContent(blocks: TBlock[]): TNode {
             textAlign: getAlignment(style.align),
             id: block.block_id,
           },
-          content: getContent(elements, childNodeIds, blocks, convertBlock),
+          content: getContent({
+            elements,
+            childNodeIds,
+            blocks,
+            convertBlock,
+            style,
+          }),
         };
 
       default:
         console.warn(`Block type ${block.block_type} is not supported.`);
-        return null;
+        // return null;
+        return {
+          type: 'block',
+          attrs: {
+            textAlign: getAlignment(style.align),
+            id: block.block_id,
+          },
+          content: getContent({
+            elements,
+            childNodeIds,
+            blocks,
+            convertBlock,
+            style,
+          }),
+        };
     }
   };
 

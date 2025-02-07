@@ -136,7 +136,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'page',
           block_id: attrs.id,
           parent_id: '',
-          content: {}, // TODO: 页面内容
+          content: {},
           node_ids: getNodeIds(content),
         };
 
@@ -241,11 +241,18 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'image',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
-          content: {
-            align: getAlignment(attrs.textAlign),
-            token: attrs.src,
-            width: attrs.width,
-            height: attrs.height,
+          content: {},
+          block_content: {
+            style: {
+              src: attrs.src,
+              align: getAlignment(attrs.textAlign),
+            },
+            elements: {
+              text_run: {
+                content: attrs.src,
+                text_element_style: [],
+              },
+            },
           },
           node_ids: [],
         };
@@ -329,7 +336,14 @@ export function convertFromTiptapContent(rootNode: TNode) {
 
       default:
         console.warn(`Node type ${blockType} is not supported.`);
-        return null;
+        // return null;
+        return {
+          block_type: 'undefined',
+          block_id: attrs.id,
+          parent_id: getParentId(attrs.id, rootNode),
+          content: {},
+          node_ids: getNodeIds(content),
+        };
     }
   };
 

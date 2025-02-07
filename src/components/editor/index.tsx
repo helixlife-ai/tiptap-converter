@@ -48,6 +48,7 @@ import { Color } from '@tiptap/extension-color';
 import { Highlight } from '@tiptap/extension-highlight';
 
 import { Callout } from '@/lib/tiptap/extension-callout';
+import { Block } from '@/lib/tiptap/extension-block';
 import { convertFromTiptapContent, convertToTiptapContent } from '@/lib/utils';
 import type { TBlock } from '@/lib/utils';
 
@@ -763,23 +764,45 @@ const mockData = {
         node_ids: [],
         block_histories: [],
       },
+      // {
+      //   block_id: 'UNHNdkbNpokCmkx9dEEcXrzenBg',
+      //   block_type: 'image',
+      //   parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
+      //   content: {
+      //     align: 2,
+      //     // "token": "BkiybBC0Vod5rWxqgmIc38DFnoq",
+      //     token:
+      //       'https://cdn.pixabay.com/photo/2024/12/20/11/53/architect-9280053_1280.jpg',
+      //     width: 2139,
+      //     height: 1284,
+      //   },
+      //   sort: 0,
+      //   created_at: '',
+      //   updated_at: '',
+      //   node_ids: [],
+      //   block_histories: [],
+      // },
       {
         block_id: 'UNHNdkbNpokCmkx9dEEcXrzenBg',
         block_type: 'image',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
-          align: 2,
-          // "token": "BkiybBC0Vod5rWxqgmIc38DFnoq",
-          token:
-            'https://cdn.pixabay.com/photo/2024/12/20/11/53/architect-9280053_1280.jpg',
-          width: 2139,
-          height: 1284,
-        },
-        sort: 0,
-        created_at: '',
-        updated_at: '',
-        node_ids: [],
+        sort: 501,
+        created_at: '2025-01-17 01:28:40',
+        updated_at: '2025-01-17 01:28:40',
         block_histories: [],
+        node_ids: [],
+        block_content: {
+          style: {
+            src: 'https://cdn.pixabay.com/photo/2024/12/20/11/53/architect-9280053_1280.jpg',
+          },
+          elements: {
+            text_run: {
+              content:
+                'https://cdn.pixabay.com/photo/2024/12/20/11/53/architect-9280053_1280.jpg',
+              text_element_style: [],
+            },
+          },
+        },
       },
 
       // table
@@ -1381,7 +1404,19 @@ const Editor = () => {
     Gapcursor,
     History,
     Callout,
+    Block,
   ];
+
+  console.log(
+    'convertToTiptapContent',
+    convertToTiptapContent(mockData.data.data as TBlock[])
+  );
+  console.log(
+    'convertFromTiptapContent',
+    convertFromTiptapContent(
+      convertToTiptapContent(mockData.data.data as TBlock[])
+    )
+  );
 
   const editor = useEditor({
     extensions,

@@ -58,6 +58,7 @@ export interface TBlock {
   block_id: string;
   block_type: string;
   parent_id: string;
+  block_content?: any;
   content: Content;
   sort?: number;
   created_at?: string;
