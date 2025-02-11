@@ -145,10 +145,12 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'heading' + attrs.level,
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
-          content: {
+          block_style: {
             style: {
               align: getAlignment(attrs.textAlign),
             },
+          },
+          content: {
             elements: getElements(content, convertNode),
           },
           node_ids: [],
@@ -159,10 +161,12 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'text',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
-          content: {
+          block_style: {
             style: {
               align: getAlignment(attrs.textAlign),
             },
+          },
+          content: {
             elements: getElements(content, convertNode),
           },
           node_ids: [],
@@ -194,11 +198,13 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'ordered',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
-          content: {
+          block_style: {
             style: {
               align: getAlignment(attrs.textAlign),
               sequence: attrs.start,
             },
+          },
+          content: {
             elements: [],
           },
           node_ids: ids,
@@ -209,10 +215,12 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'code',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
-          content: {
+          block_style: {
             style: {
               language: attrs.language || 0,
             },
+          },
+          content: {
             elements: getElements(content, convertNode),
           },
           node_ids: [],
@@ -323,13 +331,15 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'callout',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
+          block_style: {
+            style: {
+              align: getAlignment(attrs.textAlign),
+            },
+          },
           content: {
             emoji_id: attrs.emoji_id,
             text_color: attrs.textColor,
             border_color: attrs.borderColor,
-            style: {
-              align: getAlignment(attrs.textAlign),
-            },
           },
           node_ids: getNodeIds(content),
         };

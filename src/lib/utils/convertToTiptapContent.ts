@@ -214,7 +214,7 @@ export function convertToTiptapContent(blocks: TBlock[]): TNode {
     const blockType = block.block_type;
     const childNodeIds = block.node_ids || [];
     const content = block.content || {};
-    const style = content.style || {};
+    const style = block.block_style?.style || {};
     const elements = content.elements || [];
 
     switch (blockType) {

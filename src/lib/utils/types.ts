@@ -4,7 +4,6 @@ export interface TextRun {
 }
 
 export interface Content {
-  style?: ContentStyle;
   elements?: TextElement[];
   emoji_id?: string;
   text_color?: string;
@@ -60,6 +59,7 @@ export interface TBlock {
   parent_id: string;
   block_content?: any;
   content: Content;
+  block_style?: { style: ContentStyle };
   sort?: number;
   created_at?: string;
   updated_at?: string;

@@ -63,10 +63,12 @@ const mockData = {
         block_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
         block_type: 'page',
         parent_id: '',
-        content: {
+        block_style: {
           style: {
             align: 1,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -121,11 +123,13 @@ const mockData = {
         block_id: 'ZTRAd7Q65oOP6gxie15cn4FLnFk',
         block_type: 'heading1',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -151,11 +155,13 @@ const mockData = {
         block_id: 'CLtNdLTMBodjQGxHIjuc5uc9n0c',
         block_type: 'heading2',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -181,11 +187,13 @@ const mockData = {
         block_id: 'NdbbdGBKyo9R2Lxx6PncYU6ynKg',
         block_type: 'heading3',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -211,11 +219,13 @@ const mockData = {
         block_id: 'NMYtdf0DZoB3FTxoH3ZclQPjnAf',
         block_type: 'heading4',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -241,11 +251,13 @@ const mockData = {
         block_id: 'QEaodHDy6oUy3exHtk4cJGponad',
         block_type: 'heading5',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -271,11 +283,13 @@ const mockData = {
         block_id: 'Rzaqdw2f9oHzJ1xvggGckiWTnke',
         block_type: 'heading6',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -303,12 +317,13 @@ const mockData = {
         block_id: 'U1kYdlIySot9IixYl2MczVRSnVf',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 2,
             folded: false,
           },
-
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -435,11 +450,13 @@ const mockData = {
         block_id: 'BfY4dvKuaoJg9FxjltNcqOS8nfh',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -465,11 +482,13 @@ const mockData = {
         block_id: 'XFzDdUp1coghEqxdQcxcBEH1nhe',
         block_type: 'bullet',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -497,11 +516,13 @@ const mockData = {
         block_id: 'RlabdOiYnoQbMFxJWQoclQtyngg',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -527,12 +548,14 @@ const mockData = {
         block_id: 'DoeudhARTo7ggCxozpucw2lYn2c',
         block_type: 'ordered',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
             sequence: '1',
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -560,11 +583,13 @@ const mockData = {
         block_id: 'Iqk2del4boGFbSxz4Gnc9adKnBc',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -590,11 +615,13 @@ const mockData = {
         block_id: 'M7YNdlGeMoEcApxr8JWcDkRFncc',
         block_type: 'code',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             wrap: false,
             language: 7,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -622,11 +649,13 @@ const mockData = {
         block_id: 'TmR0drlqzoGcAexQLT6c2ipinzd',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -665,11 +694,13 @@ const mockData = {
         block_id: 'HpEidUGGHoi3L5xAXhWcMsAbnBb',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -706,11 +737,13 @@ const mockData = {
         block_id: 'DGEWd4bd0oF0eXxz5yFcn81Ln5g',
         block_type: 'text',
         parent_id: 'CxL6dMnwdoHsrJxbPxNcFs6cnAh',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -738,11 +771,13 @@ const mockData = {
         block_id: 'QLojdYYjVoz6vLxfFOEc2qe6nYf',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -810,11 +845,13 @@ const mockData = {
         block_id: 'GHyxd7zeaomCbIxdvFkc5DvFnXg',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -909,11 +946,13 @@ const mockData = {
         block_id: 'F4nydc9w3oBMXyxfCKIcQgXHnih',
         block_type: 'text',
         parent_id: 'LPEldutVuouIG3xdTXVcU1Wln6c',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -950,6 +989,9 @@ const mockData = {
         block_id: 'Qrs2dVHJLoEjSvxe5xUcZAPDn1d',
         block_type: 'text',
         parent_id: 'Zoa1d9hCHolv9rxlCnCcu65Bnxc',
+        block_style: {
+          style: { align: 2, folded: false },
+        },
         content: {
           elements: [
             {
@@ -965,7 +1007,6 @@ const mockData = {
               },
             },
           ],
-          style: { align: 2, folded: false },
         },
         sort: 0,
         created_at: '',
@@ -988,6 +1029,9 @@ const mockData = {
         block_id: 'OHFYd3ti3oCFYOxz0E6cRiuRnoc',
         block_type: 'text',
         parent_id: 'G1drdKrykobrWuxHxQVc0RDSngc',
+        block_style: {
+          style: { align: 3, folded: false },
+        },
         content: {
           elements: [
             {
@@ -1003,7 +1047,6 @@ const mockData = {
               },
             },
           ],
-          style: { align: 3, folded: false },
         },
         sort: 0,
         created_at: '',
@@ -1026,6 +1069,9 @@ const mockData = {
         block_id: 'EInUdXy4soBf4zxAjz9cIY6znhd',
         block_type: 'text',
         parent_id: 'YX2KduxARosAO2xg4GjcP6lwnyl',
+        block_style: {
+          style: { align: 1, folded: false },
+        },
         content: {
           elements: [
             {
@@ -1041,7 +1087,6 @@ const mockData = {
               },
             },
           ],
-          style: { align: 1, folded: false },
         },
         sort: 0,
         created_at: '',
@@ -1064,6 +1109,12 @@ const mockData = {
         block_id: 'UqM8dgADXolhq5xQmfjcuQB4nee',
         block_type: 'text',
         parent_id: 'QDS7djTGQokevRx6MKPchC9fnSc',
+        block_style: {
+          style: {
+            align: 2,
+            folded: false,
+          },
+        },
         content: {
           elements: [
             {
@@ -1079,10 +1130,6 @@ const mockData = {
               },
             },
           ],
-          style: {
-            align: 2,
-            folded: false,
-          },
         },
         sort: 0,
         created_at: '',
@@ -1105,6 +1152,9 @@ const mockData = {
         block_id: 'VotKdw5zaoZtHvxzgZ8cLmuUnPf',
         block_type: 'text',
         parent_id: 'JXR8delvloTzjexw5Ejcfnnxn9c',
+        block_style: {
+          style: { align: 3, folded: false },
+        },
         content: {
           elements: [
             {
@@ -1120,7 +1170,6 @@ const mockData = {
               },
             },
           ],
-          style: { align: 3, folded: false },
         },
         sort: 0,
         created_at: '',
@@ -1134,11 +1183,13 @@ const mockData = {
         block_id: 'CPmoduKGGo48sGxW0zjcpLOHnkg',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -1164,11 +1215,13 @@ const mockData = {
         block_id: 'Db2mdOCc0ozEbUxCw5rcoXH1nVb',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -1213,13 +1266,15 @@ const mockData = {
         block_id: 'KygmdSZSCs5h9SbiqcRcbXUOnvd',
         block_type: 'callout',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
+        block_style: {
+          style: {
+            align: 2,
+          },
+        },
         content: {
           emoji_id: 'snowboarder',
           text_color: '#ff0000',
           border_color: '#0000ff',
-          style: {
-            align: 2,
-          },
         },
         sort: 0,
         created_at: '',
@@ -1231,11 +1286,13 @@ const mockData = {
         block_id: 'XjpgdnfeGol23rxTV4Dc9jPenqb',
         block_type: 'text',
         parent_id: 'KLUBdpM9UoZ1PexD2WHcxeu7nGe',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -1287,11 +1344,13 @@ const mockData = {
         block_id: 'LvQNdmfVWoWiCBxxvEjcnx1pnAf',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
@@ -1317,11 +1376,13 @@ const mockData = {
         block_id: 'L3O2d6Ljioztftxk0d6ckE6rntg',
         block_type: 'text',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_style: {
           style: {
             align: 1,
             folded: false,
           },
+        },
+        content: {
           elements: [
             {
               text_run: {
