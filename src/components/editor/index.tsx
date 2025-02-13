@@ -68,7 +68,7 @@ const mockData = {
             align: 1,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -129,7 +129,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -161,7 +161,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -193,7 +193,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -225,7 +225,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -257,7 +257,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -289,7 +289,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -323,7 +323,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -456,7 +456,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -488,7 +488,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -522,7 +522,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -555,7 +555,7 @@ const mockData = {
             sequence: '1',
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -589,7 +589,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -621,7 +621,7 @@ const mockData = {
             language: 7,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -655,7 +655,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -681,7 +681,7 @@ const mockData = {
         block_id: 'B21gdanJDoVcEfxRclGciTe0nUe',
         block_type: 'divider',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {},
+        block_content: {},
         sort: 0,
         created_at: '',
         updated_at: '',
@@ -700,7 +700,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -726,7 +726,7 @@ const mockData = {
         block_id: 'CxL6dMnwdoHsrJxbPxNcFs6cnAh',
         block_type: 'quote_container',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {},
+        block_content: {},
         sort: 0,
         created_at: '',
         updated_at: '',
@@ -743,7 +743,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -777,7 +777,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -803,7 +803,7 @@ const mockData = {
       //   block_id: 'UNHNdkbNpokCmkx9dEEcXrzenBg',
       //   block_type: 'image',
       //   parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-      //   content: {
+      //   block_content: {
       //     align: 2,
       //     // "token": "BkiybBC0Vod5rWxqgmIc38DFnoq",
       //     token:
@@ -851,7 +851,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -877,7 +877,7 @@ const mockData = {
         block_id: 'Jc0yd0NA6oGUcqxc1lCcECCBnbf',
         block_type: 'table',
         parent_id: 'URg9dmL0eovUh8x53WYcWYK1nns',
-        content: {
+        block_content: {
           cells: [
             'LPEldutVuouIG3xdTXVcU1Wln6c',
             'Zoa1d9hCHolv9rxlCnCcu65Bnxc',
@@ -935,7 +935,7 @@ const mockData = {
         block_id: 'LPEldutVuouIG3xdTXVcU1Wln6c',
         block_type: 'table_cell',
         parent_id: 'Jc0yd0NA6oGUcqxc1lCcECCBnbf',
-        content: {},
+        block_content: {},
         sort: 0,
         created_at: '',
         updated_at: '',
@@ -952,7 +952,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -978,7 +978,7 @@ const mockData = {
         block_id: 'Zoa1d9hCHolv9rxlCnCcu65Bnxc',
         block_type: 'table_cell',
         parent_id: 'Jc0yd0NA6oGUcqxc1lCcECCBnbf',
-        content: {},
+        block_content: {},
         sort: 0,
         created_at: '',
         updated_at: '',
@@ -992,7 +992,7 @@ const mockData = {
         block_style: {
           style: { align: 2, folded: false },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -1018,7 +1018,7 @@ const mockData = {
         block_id: 'G1drdKrykobrWuxHxQVc0RDSngc',
         block_type: 'table_cell',
         parent_id: 'Jc0yd0NA6oGUcqxc1lCcECCBnbf',
-        content: {},
+        block_content: {},
         sort: 0,
         created_at: '',
         updated_at: '',
@@ -1032,7 +1032,7 @@ const mockData = {
         block_style: {
           style: { align: 3, folded: false },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -1058,7 +1058,7 @@ const mockData = {
         block_id: 'YX2KduxARosAO2xg4GjcP6lwnyl',
         block_type: 'table_cell',
         parent_id: 'Jc0yd0NA6oGUcqxc1lCcECCBnbf',
-        content: {},
+        block_content: {},
         sort: 0,
         created_at: '',
         updated_at: '',
@@ -1072,7 +1072,7 @@ const mockData = {
         block_style: {
           style: { align: 1, folded: false },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -1098,7 +1098,7 @@ const mockData = {
         block_id: 'QDS7djTGQokevRx6MKPchC9fnSc',
         block_type: 'table_cell',
         parent_id: 'Jc0yd0NA6oGUcqxc1lCcECCBnbf',
-        content: {},
+        block_content: {},
         sort: 0,
         created_at: '',
         updated_at: '',
@@ -1115,7 +1115,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -1141,7 +1141,7 @@ const mockData = {
         block_id: 'JXR8delvloTzjexw5Ejcfnnxn9c',
         block_type: 'table_cell',
         parent_id: 'Jc0yd0NA6oGUcqxc1lCcECCBnbf',
-        content: {},
+        block_content: {},
         sort: 0,
         created_at: '',
         updated_at: '',
@@ -1155,7 +1155,7 @@ const mockData = {
         block_style: {
           style: { align: 3, folded: false },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -1189,7 +1189,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -1221,7 +1221,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -1251,7 +1251,7 @@ const mockData = {
       //     "block_id": "KygmdSZSCs5h9SbiqcRcbXUOnvd",
       //     "block_type": "undefined",
       //     "parent_id": "URg9dmL0eovUh8x53WYcWYK1nns",
-      //     "content": {},
+      //     "block_content": {},
       //     "sort": 0,
       //     "created_at": "",
       //     "updated_at": "",
@@ -1271,7 +1271,7 @@ const mockData = {
             align: 2,
           },
         },
-        content: {
+        block_content: {
           emoji_id: 'snowboarder',
           text_color: '#ff0000',
           border_color: '#0000ff',
@@ -1292,7 +1292,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -1350,7 +1350,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -1382,7 +1382,7 @@ const mockData = {
             folded: false,
           },
         },
-        content: {
+        block_content: {
           elements: [
             {
               text_run: {
@@ -1481,12 +1481,12 @@ const Editor = () => {
 
   const editor = useEditor({
     extensions,
-    content: convertToTiptapContent(
-      convertFromTiptapContent(
-        convertToTiptapContent(mockData.data.data as TBlock[])
-      )
-    ),
-    // content: convertToTiptapContent(mockData.data.data as TBlock[]),
+    // content: convertToTiptapContent(
+    //   convertFromTiptapContent(
+    //     convertToTiptapContent(mockData.data.data as TBlock[])
+    //   )
+    // ),
+    content: convertToTiptapContent(mockData.data.data as TBlock[]),
   });
 
   return (

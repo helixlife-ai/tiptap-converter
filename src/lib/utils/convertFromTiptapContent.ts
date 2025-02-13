@@ -136,7 +136,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'page',
           block_id: attrs.id,
           parent_id: '',
-          content: {},
+          block_content: {},
           node_ids: getNodeIds(content),
         };
 
@@ -150,7 +150,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
               align: getAlignment(attrs.textAlign),
             },
           },
-          content: {
+          block_content: {
             elements: getElements(content, convertNode),
           },
           node_ids: [],
@@ -166,7 +166,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
               align: getAlignment(attrs.textAlign),
             },
           },
-          content: {
+          block_content: {
             elements: getElements(content, convertNode),
           },
           node_ids: [],
@@ -183,7 +183,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'bullet',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
-          content: {},
+          block_content: {},
           node_ids,
         };
 
@@ -204,7 +204,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
               sequence: attrs.start,
             },
           },
-          content: {
+          block_content: {
             elements: [],
           },
           node_ids: ids,
@@ -220,7 +220,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
               language: attrs.language || 0,
             },
           },
-          content: {
+          block_content: {
             elements: getElements(content, convertNode),
           },
           node_ids: [],
@@ -231,7 +231,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'divider',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
-          content: {},
+          block_content: {},
           node_ids: [],
         };
 
@@ -240,7 +240,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'quote_container',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
-          content: {},
+          block_content: {},
           node_ids: getNodeIds(content),
         };
 
@@ -249,7 +249,6 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'image',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
-          content: {},
           block_content: {
             style: {
               src: attrs.src,
@@ -304,7 +303,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'table',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
-          content: {
+          block_content: {
             cells: tableCellIds,
             property: {
               row_size: rowSize,
@@ -322,7 +321,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'table_cell',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode) || '',
-          content: {},
+          block_content: {},
           node_ids: getNodeIds(content),
         };
 
@@ -336,7 +335,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
               align: getAlignment(attrs.textAlign),
             },
           },
-          content: {
+          block_content: {
             emoji_id: attrs.emoji_id,
             text_color: attrs.textColor,
             border_color: attrs.borderColor,
@@ -351,7 +350,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
           block_type: 'undefined',
           block_id: attrs.id,
           parent_id: getParentId(attrs.id, rootNode),
-          content: {},
+          block_content: {},
           node_ids: getNodeIds(content),
         };
     }
