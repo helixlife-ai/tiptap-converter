@@ -78,7 +78,10 @@ const mergeInfoTo2DArray = (
                 index: currentNumber,
                 rowspan: merge.row_span,
                 colspan: merge.col_span,
-                colwidth: columnWidth.slice(c, c + merge.col_span),
+                colwidth:
+                  columnWidth
+                    .slice(c, c + merge.col_span)
+                    .reduce((res, cur) => res + cur, 0) || null,
               };
             } else {
               grid[r + i][c + j] = 1;
@@ -135,7 +138,6 @@ const getContent = ({
         type: 'paragraph',
         attrs: {
           textAlign: getAlignment(style?.align),
-          id: uuidv4(), // TODO: remove id after compeleting id plugin
         },
         content: elementContent,
       });
@@ -180,21 +182,16 @@ const getListContent = ({
       if (subBlock) {
         content.push({
           type: 'listItem',
-          attrs: { id: uuidv4() }, // TODO: remove id after compeleting id plugin
           content: convertBlock(subBlock) ? [convertBlock(subBlock)] : [],
         });
       }
     });
   } else {
     content = elements.map((element) => ({
-      attrs: { id: uuidv4() }, // TODO: remove id after compeleting id plugin
       type: 'listItem',
       content: [
         {
           type: 'paragraph',
-          attrs: {
-            id: uuidv4(), // TODO: remove id after compeleting id plugin
-          },
           content: getContent({
             elements: [element],
             childNodeIds,
@@ -368,7 +365,6 @@ export function convertToTiptapContent(blocks: TBlock[]): TNode {
           // create row
           const row: TNode = {
             type: 'tableRow',
-            attrs: { id: uuidv4() }, // TODO: remove id after compeleting id plugin
             content: [],
           };
 
@@ -404,7 +400,7 @@ export function convertToTiptapContent(blocks: TBlock[]): TNode {
       case 'table_cell':
         return {
           type: 'tableCell',
-          attrs: { id: uuidv4() }, // TODO: remove id after compeleting id plugin
+          attrs: { id: block.block_id },
           content: getContent({
             elements,
             childNodeIds,

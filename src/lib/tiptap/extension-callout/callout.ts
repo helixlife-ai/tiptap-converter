@@ -1,5 +1,6 @@
 import { Node } from '@tiptap/core';
 
+// TODO: refine this component
 export const Callout = Node.create({
   name: 'callout',
   content: 'block+',
@@ -39,8 +40,7 @@ export const Callout = Node.create({
     ];
   },
 
-  renderHTML({ node, HTMLAttributes }) {
-    // console.log(node, HTMLAttributes);
+  renderHTML({ HTMLAttributes }) {
     return ['div', { class: 'callout', ...HTMLAttributes }, 0];
   },
 });

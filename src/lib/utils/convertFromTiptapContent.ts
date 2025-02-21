@@ -6,8 +6,9 @@ import {
   TMark,
   TextElement,
 } from './types';
+import { addIdToNode } from './addIdToNodes';
 
-function getParentId<T>(childId: T, rootNode: TNode): T | undefined {
+function getParentId<T>(childId: T, nodes: TNode): T | undefined {
   function traverse(node: TNode, parentId: T | undefined): T | undefined {
     if (node.attrs && node.attrs.id === childId) {
       return parentId;
@@ -25,7 +26,7 @@ function getParentId<T>(childId: T, rootNode: TNode): T | undefined {
     }
   }
 
-  return traverse(rootNode, undefined);
+  return traverse(nodes, undefined);
 }
 
 function getElementByBlockId(childId: string, node: TNode): TNode | null {
@@ -124,6 +125,7 @@ const getElements = (
 
 export function convertFromTiptapContent(rootNode: TNode) {
   const blockList: TBlock[] = [];
+  const nodes = addIdToNode(rootNode);
 
   const convertNode = (tiptapNode: TNode): TBlock | null => {
     const attrs = tiptapNode.attrs || {};
@@ -144,7 +146,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'heading' + attrs.level,
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode),
+          parent_id: getParentId(attrs.id, nodes),
           block_style: {
             style: {
               align: getAlignment(attrs.textAlign),
@@ -160,7 +162,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'text',
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode),
+          parent_id: getParentId(attrs.id, nodes),
           block_style: {
             style: {
               align: getAlignment(attrs.textAlign),
@@ -182,7 +184,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'bullet',
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode),
+          parent_id: getParentId(attrs.id, nodes),
           block_content: {},
           node_ids,
         };
@@ -197,7 +199,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'ordered',
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode),
+          parent_id: getParentId(attrs.id, nodes),
           block_style: {
             style: {
               align: getAlignment(attrs.textAlign),
@@ -214,7 +216,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'code',
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode),
+          parent_id: getParentId(attrs.id, nodes),
           block_style: {
             style: {
               language: attrs.language || 0,
@@ -230,7 +232,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'divider',
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode),
+          parent_id: getParentId(attrs.id, nodes),
           block_content: {},
           node_ids: [],
         };
@@ -239,7 +241,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'quote_container',
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode),
+          parent_id: getParentId(attrs.id, nodes),
           block_content: {},
           node_ids: getNodeIds(content),
         };
@@ -248,7 +250,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'image',
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode),
+          parent_id: getParentId(attrs.id, nodes),
           block_content: {
             style: {
               src: attrs.src,
@@ -279,22 +281,24 @@ export function convertFromTiptapContent(rootNode: TNode) {
         content.forEach((tableRow: any, rowIndex: number) => {
           tableRow.content.forEach((tableCell: any, cellIndex: number) => {
             const attrs = tableCell.attrs;
+            const rowspan = attrs.rowspan || 1;
+            const colspan = attrs.colspan || 1;
 
             if (rowIndex === 0) {
-              for (let i = 0; i < attrs.colspan; i++) {
-                columnWidth.push(attrs.colwidth[i]);
+              for (let i = 0; i < colspan; i++) {
+                columnWidth.push(attrs.colwidth?.[i]);
               }
             }
 
             if (cellIndex === 0) {
-              for (let i = 0; i < attrs.rowspan; i++) {
-                rowSize += attrs.rowspan;
+              for (let i = 0; i < rowspan; i++) {
+                rowSize += rowspan;
               }
             }
 
             mergeInfo.push({
-              col_span: attrs.colspan,
-              row_span: attrs.rowspan,
+              col_span: colspan,
+              row_span: rowspan,
             });
           });
         });
@@ -302,13 +306,13 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'table',
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode),
+          parent_id: getParentId(attrs.id, nodes),
           block_content: {
             cells: tableCellIds,
             property: {
               row_size: rowSize,
               column_size: columnWidth.length,
-              column_width: columnWidth,
+              column_width: columnWidth.filter((width) => width),
               merge_info: mergeInfo,
             },
           },
@@ -320,7 +324,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'table_cell',
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode) || '',
+          parent_id: getParentId(attrs.id, nodes) || '',
           block_content: {},
           node_ids: getNodeIds(content),
         };
@@ -329,7 +333,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'callout',
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode),
+          parent_id: getParentId(attrs.id, nodes),
           block_style: {
             style: {
               align: getAlignment(attrs.textAlign),
@@ -349,7 +353,7 @@ export function convertFromTiptapContent(rootNode: TNode) {
         return {
           block_type: 'undefined',
           block_id: attrs.id,
-          parent_id: getParentId(attrs.id, rootNode),
+          parent_id: getParentId(attrs.id, nodes),
           block_content: {},
           node_ids: getNodeIds(content),
         };
@@ -363,11 +367,11 @@ export function convertFromTiptapContent(rootNode: TNode) {
     if (convertedNode) {
       blockList.push(convertedNode);
       (convertedNode.node_ids || []).forEach((id) => {
-        loop(getElementByBlockId(id, rootNode));
+        loop(getElementByBlockId(id, nodes));
       });
     }
   };
-  loop(rootNode);
+  loop(nodes);
 
   return blockList;
 }
